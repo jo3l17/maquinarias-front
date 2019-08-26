@@ -1,0 +1,53 @@
+<div class="container-fluid mt-5 mb-5">
+    <div class="mt-5 row" style="margin-left:8.3333%;margin-right: 8.3333%">
+        <div class="col-sm-12 mb-5">
+            <div class="col-sm-12">
+                <h1>Busqueda Individual</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center" (click)="navigate('pesado')">
+                    <a>
+                        <h5>Equipo</h5>
+                        <p>Pesado</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center" (click)="navigate('liviano')">
+                    <a>
+                        <h5>Equipo</h5>
+                        <p>Liviano</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center" (click)="navigate('carga')">
+                    <a>
+                        <h5>Equipo de</h5>
+                        <p>Carga</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center" (click)="navigate('personal')">
+                    <a>
+                        <h5>Transporte</h5>
+                        <p>De Personal</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 mt-5" style="border: 1px solid black;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

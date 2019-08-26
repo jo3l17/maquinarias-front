@@ -1,0 +1,137 @@
+<div class="container mt-5 mb-5">
+    <h3 class="mb-5" style="text-transform: capitalize;">Registro de {{tipo}}</h3>
+    <h5>Datos del {{tipo}}</h5>
+    <hr>
+    <form class="row">
+        <div class="col-md-6">
+            <mat-form-field>
+                <mat-select placeholder="Tipo de Documento">
+                    <mat-option value="1">DNI</mat-option>
+                    <mat-option value="2">Pasaporte</mat-option>
+                    <mat-option value="3">Carnet de Extranjeria</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <input matInput type="number" placeholder="Numero de Documento">
+            </mat-form-field>
+        </div>
+        <div class="col-md-12">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Razon Social">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Nombre de Contacto">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field>
+                <input matInput type="number" placeholder="Telefono">
+            </mat-form-field>
+        </div>
+        <div class="col-md-12 mb-3">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Direccion">
+            </mat-form-field>
+        </div>
+    </form>
+    <h5>Datos de Acceso</h5>
+    <hr>
+    <form action="" class="row">
+        <div class="col-md-12 mb-3">
+            <mat-form-field>
+                <input matInput type="email" placeholder="Email">
+            </mat-form-field>
+        </div>
+        <div class="col-md-12 mb-3">
+            <mat-form-field>
+                <input matInput type="password" placeholder="Contraseña">
+            </mat-form-field>
+        </div>
+        <div class="col-md-12 mb-3">
+            <mat-form-field>
+                <input matInput type="password" placeholder="Repita su contraseña">
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="row">
+        <div *ngIf="tipo==='proveedor'" class="col-md-12">
+            <div>
+                <h5>Maquinaria Disponible</h5>
+                <hr>
+                <div class="row maq-form" *ngFor="let maquinaira of maquinarias">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-select placeholder="Tipo de Maquinaria">
+                                <mat-option value="Excavadora">Excavadora</mat-option>
+                                <mat-option value="Hidraulica">Hidraulica</mat-option>
+                                <mat-option value="Cargador">Cargador</mat-option>
+                                <mat-option value="Frontal">Frontal</mat-option>
+                                <mat-option value="RetroExcavadora">RetroExcavadora</mat-option>
+                                <mat-option value="Motoniveladora">Motoniveladora</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-select placeholder="Año">
+                                <mat-option value="2019">2019</mat-option>
+                                <mat-option value="2018">2018</mat-option>
+                                <mat-option value="2017">2017</mat-option>
+                                <mat-option value="2016">2016</mat-option>
+                                <mat-option value="2015">2015</mat-option>
+                                <mat-option value="2014">2014</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-form-field>
+                            <mat-select placeholder="Marca">
+                                <mat-option value="Caterpillar">Caterpillar</mat-option>
+                                <mat-option value="Komatsu">Komatsu</mat-option>
+                                <mat-option value="Terex">Terex</mat-option>
+                                <mat-option value="Hitachi">Hitachi</mat-option>
+                                <mat-option value="John Deere">John Deere</mat-option>
+                                <mat-option value="Sandvik">Sandvik</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-form-field>
+                            <mat-select placeholder="Modelo">
+                                <mat-option value="306">306</mat-option>
+                                <mat-option value="20156">20156</mat-option>
+                                <mat-option value="156431">156431</mat-option>
+                                <mat-option value="1345132">1345132</mat-option>
+                                <mat-option value="46523">46523</mat-option>
+                                <mat-option value="46879654">46879654</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2">
+                        <mat-form-field>
+                            <input matInput type="number" min="1" placeholder="Cantidad">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-5">
+                        <button class="btn btn-block btn-success" type="button" (click)="agregarMaquinaria()">Añadir
+                            maquinaria</button>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5">
+                        <button class="btn btn-block btn-primary">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="tipo==='cliente'" class="col-md-5">
+            <button class="btn btn-block btn-primary">Registrar</button>
+        </div>
+    </div>
+</div>
