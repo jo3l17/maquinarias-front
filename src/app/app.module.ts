@@ -15,6 +15,7 @@ import { AlquileresActivosComponent } from './components/alquileres-activos/alqu
 import { BIndividualModule } from './b-individual/b-individual.module';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { GestureConfig } from '@angular/material';
+import { MaquinariaComponent } from './components/maquinaria/maquinaria.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GestureConfig } from '@angular/material';
     ClienteComponent,
     BMasivaComponent,
     CotizacionesComponent,
-    AlquileresActivosComponent
+    AlquileresActivosComponent,
+    MaquinariaComponent
   ],
   imports: [
     BIndividualModule,

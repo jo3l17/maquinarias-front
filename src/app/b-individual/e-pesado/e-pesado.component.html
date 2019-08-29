@@ -7,31 +7,25 @@
                 </mat-card-header>
                 <mat-card-content>
                     <mat-form-field>
-                        <mat-select placeholder="Tipo de Maquinaria">
-                            <mat-option value="1">1</mat-option>
-                            <mat-option value="2">2</mat-option>
-                            <mat-option value="3">2</mat-option>
+                        <mat-select [(value)]="maqTipo" (selectionChange)="select()" placeholder="Tipo de Maquinaria">
+                            <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Marca">
-                            <mat-option value="1">1</mat-option>
-                            <mat-option value="2">2</mat-option>
-                            <mat-option value="3">2</mat-option>
+                        <mat-select [(value)]="maqAnio" placeholder="Año" (selectionChange)="select2()"
+                            [disabled]="!selectedMarca">
+                            <mat-option *ngFor="let anio of anios" [value]="anio">{{anio}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Modelo">
-                            <mat-option value="1">1</mat-option>
-                            <mat-option value="2">2</mat-option>
-                            <mat-option value="3">2</mat-option>
+                        <mat-select placeholder="Marca" [disabled]="!selectedMarca" (selectionChange)="select3()" [(value)]="maqMarca">
+                            <mat-option *ngFor="let marca of marcas" [value]="marca">{{marca}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-select placeholder="Año">
-                            <mat-option value="1">1</mat-option>
-                            <mat-option value="2">2</mat-option>
-                            <mat-option value="3">2</mat-option>
+                        <mat-select placeholder="Modelo" [disabled]="!selectedMarca" (selectionChange)="select4()" [(value)]="maqModelo">
+                            <mat-option *ngFor="let modelo of modelos" [value]="modelo">{{modelo}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <div>
@@ -46,22 +40,23 @@
                     </mat-slider>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-raised-button color="primary">ACTUALIZAR</button>
+                    <button mat-raised-button (click)="restart()" color="primary">ACTUALIZAR</button>
                 </mat-card-actions>
             </mat-card>
         </div>
-        <div class="col-md-8">
-            <div class="col-md-6">
-                <mat-card class="example-card">
+        <div class="col-md-8" *ngIf="!cargado">
+            <mat-spinner style="margin:200px auto;"></mat-spinner>
+        </div>
+        <div class="col-md-8 row" *ngIf="cargado">
+            <div class="col-md-6" *ngFor="let maquinaria of maquinarias">
+                <mat-card class="example-card clickable" (click)="detallesMaquinaria(maquinaria.maq_id)">
                     <mat-card-header>
-                        <mat-card-title class="text-right">Capacidad 35 TN</mat-card-title>
+                        <mat-card-title class="text-right">Capacidad {{maquinaria.maq_capacidad}} TN</mat-card-title>
                     </mat-card-header>
-                    <img mat-card-image
-                        src="https://www.arcus-global.com/wp/wp-content/uploads/2016/04/mquinaria-arcus-global_opt.jpg"
-                        alt="Photo of a Shiba Inu">
+                    <img mat-card-image [src]="maquinaria.maq_img" alt="Photo of a Shiba Inu">
                     <mat-card-content>
-                        <h5>Año | Marca | Modelo</h5>
-                        <h6>Ubicacion</h6>
+                        <h5>{{maquinaria.maq_anio}} | {{maquinaria.maq_marca}} | {{maquinaria.maq_modelo}}</h5>
+                        <h6>{{maquinaria.maq_lat}} {{maquinaria.maq_lng}}</h6>
                     </mat-card-content>
                     <mat-card-footer class="text-right">
                         <span>precio x Hora</span>
@@ -69,8 +64,6 @@
                     </mat-card-footer>
                 </mat-card>
             </div>
-
-
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ import { ClienteComponent } from './components/cliente/cliente.component';
 import { BMasivaComponent } from './components/b-masiva/b-masiva.component';
 import { CotizacionesComponent } from './components/cotizaciones/cotizaciones.component';
 import { AlquileresActivosComponent } from './components/alquileres-activos/alquileres-activos.component';
+import { MaquinariaComponent } from './components/maquinaria/maquinaria.component';
 
 
 
@@ -34,6 +35,10 @@ const routes: Routes = [
     path:'alquileresActivos',
     component:AlquileresActivosComponent
   },
+  {
+    path:'maquinaria/:id',
+    component:MaquinariaComponent
+  }
 ];
 
 @NgModule({
